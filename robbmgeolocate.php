@@ -21,6 +21,7 @@
 
         $temp['geometry']['lat'] = $entry['geometry']['lat'];
         $temp['geometry']['lng'] = $entry['geometry']['lng'];
+        $temp['address'] = $entry['formatted'];
         $temp['countryCode'] = strtoupper($entry['components']['country_code']);
         $temp['timezone'] = $entry['annotations']['timezone']['name'];
         $temp['sunrise'] = date('r',$entry['annotations']['sun']['rise']['apparent']);
@@ -31,10 +32,7 @@
 
     }
 
-
-
     header('Content-Type: application/json; charset=UTF-8');
-    // echo json_encode($searchResult);
 	
 	echo json_encode($searchResult, JSON_UNESCAPED_UNICODE);
 ?>
